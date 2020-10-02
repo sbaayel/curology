@@ -41,13 +41,16 @@ class Api::V1::PaymentsController < ApplicationController
   end
 
   private
+  
+  def find_payment
+    @payment = Payment.find(params[:id])
+  end
+
   def payment_params 
     params.require(:payment).permit(:ccNum, :exp, :magic_id)
   end
 
-  def find_payment
-    @payment = Payment.find(params[:id])
-  end
+  
 
 
 end

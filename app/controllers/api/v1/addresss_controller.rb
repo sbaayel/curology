@@ -42,13 +42,15 @@ class Api::V1::AddresssController < ApplicationController
   end
 
   private
+  def find_address
+    @address = Address.find(params[:id])
+  end
+
   def address_params 
     params.require(:address).permit(:street1, :street2, :city, :state, :zip, :magic_id)
   end
 
-  def find_address
-    @address = Address.find(params[:id])
-  end
+
 
 
 
