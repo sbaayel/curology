@@ -1,6 +1,6 @@
 class Api::V1::PaymentsController < ApplicationController
-  before_action :find_payment, only: [:create, :show, :update, :destroy]
-  # GET magics
+  before_action :set_payment, only: [:show, :update, :destroy]
+  
   def index
     @payments = Payment.all 
     
@@ -10,7 +10,7 @@ class Api::V1::PaymentsController < ApplicationController
     render json: @payment
   end
 
-  #POST magics
+
   def create 
     @payment = Payment.new(payment_params) 
     if @payment.save 
@@ -20,7 +20,7 @@ class Api::V1::PaymentsController < ApplicationController
     end
   end
 
-  # PUT magic
+ 
   def update 
      
     if @payment 
@@ -42,12 +42,13 @@ class Api::V1::PaymentsController < ApplicationController
 
   private
   
-  def find_payment
+  def set_payment
     @payment = Payment.find(params[:id])
   end
 
-  def payment_params 
-    params.require(:payment).permit(:ccNum, :exp, :magic_id)
+  
+  def payment_params
+    params.require(:payment).permit(:magic_id, :ccNum, :exp)
   end
 
   

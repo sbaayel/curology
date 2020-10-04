@@ -1,4 +1,4 @@
 class Magic < ApplicationRecord
-  has_many :address
-  has_many :payment
+  has_one :address
+  has_one :payment
 end

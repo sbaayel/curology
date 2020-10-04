@@ -1,5 +1,5 @@
 class Api::V1::MagicsController < ApplicationController
-before_action :set_magic, only: [:show, :update]
+  before_action :set_magic, only: [:show, :update, :destroy]
 
   # GET magics
   def index
@@ -42,11 +42,12 @@ before_action :set_magic, only: [:show, :update]
 
   private
 
-  def find_magic 
+  def set_magic
     @magic = Magic.find(params[:id])
   end
 
-  def magic_params 
+  
+  def magic_params
     params.require(:magic).permit(:firstName, :lastName, :email, :phone, :quantity, :total)
   end
 

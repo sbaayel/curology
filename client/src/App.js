@@ -1,12 +1,13 @@
 import React from 'react';
-import Form from './components/Form.jsx';
+import Main from './components/Main.jsx';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       
-      <Form/>
+      
+      <Route path="" component={Main}/>
     </div>
   );
 }

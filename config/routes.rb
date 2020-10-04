@@ -3,10 +3,10 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :magics do
+      resources :magics
         resources :addresss
         resources :payments
-      end
+      
     end
   end
 end

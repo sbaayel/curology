@@ -1,5 +1,5 @@
 class Api::V1::AddresssController < ApplicationController 
-  before_action :find_address, only: [:create, :show, :update, :destroy]
+  before_action :set_address, only: [:show, :update, :destroy]
 
   # GET magics
   def index
@@ -42,12 +42,13 @@ class Api::V1::AddresssController < ApplicationController
   end
 
   private
-  def find_address
+  def set_address
     @address = Address.find(params[:id])
   end
 
-  def address_params 
-    params.require(:address).permit(:street1, :street2, :city, :state, :zip, :magic_id)
+  
+  def address_params
+    params.require(:address).permit(:magic_id, :street1, :street2, :city, :state, :zip)
   end
 
 

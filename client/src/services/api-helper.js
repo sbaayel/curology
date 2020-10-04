@@ -12,17 +12,16 @@ const api = axios.create({
 
 
 
+
 export const getAllMagics = async () => {
   const resp = await api.get('/magics');
   return resp.data;
 }
 
-
 export const getOneMagic = async (id) => {
   const resp = await api.get(`/magics/${id}`);
   return resp.data;
 }
-
 
 export const postMagic = async (magicData) => {
   const resp = await api.post('/magics', magicData);
@@ -30,6 +29,18 @@ export const postMagic = async (magicData) => {
 }
 
 export const putMagic = async (id, magicData) => {
+  const resp = await api.put(`/magics/${id}`, magicData);
+  return resp.data;
+}
+
+export const destroyMagic = async (id) => {
+  const resp = await api.delete(`/magics/${id}`);
+  return resp;
+}
+
+
+
+export const putAddress = async (id, magicData) => {
   const resp = await api.put(`/magics/${id}`, magicData);
   return resp.data;
 }
