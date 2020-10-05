@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import '../App.css'
 import './Form.css'
+import image from './image.jpg';
+
 export default class Form extends Component {
   state = {
     firstName: '',
@@ -36,9 +38,35 @@ export default class Form extends Component {
         this.props.history.push('/magics');
       }}>
           <h3>Magic Potion</h3>
+          <div className="image-wrap">
+            <img src={image} />
+            <p>description</p>
+
+            <div className="image-wrap2">
+              <input className="create-edit-input"
+               placeholder="Quantity"
+          id="quantity"
+          type="text"
+          name="quantity"
+          value={quantity}
+          onChange={this.handleChange}
+        />
+        
+       
+            <input className="create-edit-input"
+               placeholder="Calculated"
+          id="calculated"
+          type="text"
+          name="calculated"
+          value={calculated}
+          onChange={this.handleChange}
+              />
+            </div>
+          </div>
+          
+
           <div className="create-edit-container">
-            
-      
+
             <input className="create-edit-input"
                placeholder="First Name"
           id="firstName"
@@ -158,24 +186,7 @@ export default class Form extends Component {
 
         </div>
       
-            <input className="create-edit-input"
-               placeholder="Quantity"
-          id="quantity"
-          type="text"
-          name="quantity"
-          value={quantity}
-          onChange={this.handleChange}
-        />
-        
-       
-            <input className="create-edit-input"
-               placeholder="Calculated"
-          id="calculated"
-          type="text"
-          name="calculated"
-          value={calculated}
-          onChange={this.handleChange}
-            />
+            
             
             <button className="button">Submit</button>
           </div>
