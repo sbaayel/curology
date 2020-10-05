@@ -40,7 +40,7 @@ export default class Form extends Component {
           <h3>Magic Potion</h3>
           <div className="image-wrap">
             <img src={image} />
-            <p>description</p>
+            
 
             <div className="image-wrap2">
               <input className="create-edit-input"

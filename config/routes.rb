@@ -4,9 +4,25 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :magics
-        resources :addresss
-        resources :payments
+        
+        
       
+    end
+  end
+
+  namespace :api do
+    namespace :v1 do
+      
+        resources :addresss
+        
+      
+    end
+  end
+
+  namespace :api do
+    namespace :v1 do
+      resources :payments
+        
     end
   end
 end

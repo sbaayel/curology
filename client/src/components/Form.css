@@ -72,15 +72,25 @@ h3{
 
 .image-wrap{
   display: flex;
+  margin-top: 100px;
+}
+.image-wrap2{
+max-width: 200px;
+
+}
+
+.image-wrap2 input{
+  margin-bottom: 220px;
+  margin-top: 0px;
 }
 
 img{
   content: "";
   bottom: 25px;
   left: 10px;
-  width: 50%;
+  
   top: 80%;
-  max-width:300px;
+  max-width:450px;
   background: #777;
   -webkit-box-shadow: 0 35px 20px #777;
   -moz-box-shadow: 0 35px 20px #777;

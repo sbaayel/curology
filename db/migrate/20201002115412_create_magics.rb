@@ -7,7 +7,7 @@ class CreateMagics < ActiveRecord::Migration[6.0]
       t.string :phone
       t.numeric :quantity
       t.string :total
-      
+      t.string :image
 
       t.timestamps
     end
