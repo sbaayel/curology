@@ -1,16 +1,47 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
+import '../App.css'
 
-class Main extends React.Component {
+import { getAllMagics, postMagic } from '../services/api-helper';
+import Form from './Form';
+
+export default class Main extends Component {
+  state = {
+    
+    magics: []
+  }
+
+  componentDidMount() {
+    
+    this.readAllMagics();
+  }
+
+  readAllMagics = async () => {
+    const magics = await getAllMagics();
+    this.setState({ magics })
+  }
+
   
+
+  handleMagicSubmit = async (magicData) => {
+    const newMagic = await postMagic(magicData);
+    this.setState(prevState => ({
+      magics: [...prevState.magics, newMagic]
+    }))
+  }
 
   render() {
     return (
-      <div class="container">
-        
-       <Link></Link> 
-     </div>
-    );
+      <main>
+        <Route path="/magics/new" render={(props) => (
+          <Form
+            {...props}
+            handleMagicSubmit={this.handleMagicSubmit}
+          />
+        )} />
+
+      </main>
+      
+    )
   }
 }
-export default Main;

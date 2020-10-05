@@ -1,111 +1,190 @@
-import React from 'react';
-import './Form.css';
-
-class Form extends React.Component {
-  constructor () {
-    super();
-    this.state = {
-      firstName: '',
-      secondName: '',
-      email: '',
-      street1: '',
-      street2: '',
-      city: '',
-      state: '',
-      zip: '',
-      phone: '',
-      ccNum: '',
-      exp: '',
-      quantity: '',
-      amount: ''
-    };
-    this.handleChange = this.handleChange.bind(this);
+import React, { Component } from 'react'
+import '../App.css'
+import './Form.css'
+export default class Form extends Component {
+  state = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    street1: '',
+    street2: '',
+    city: '',
+    state: '',
+    zip: '',
+    quantity: '',
+    calculated: '',
+    ccNum: '',
+   exp: ''
   }
-  handleChange (evt) {      
-    this.setState({ [evt.target.name]: evt.target.value });
+
+  handleChange = (e) => {
+    const { name, value } = e.target;
+    this.setState({
+      [name]: value
+    })
   }
 
   render() {
+    const { firstName, lastName, email, phone, street1, street2, city, state, zip, quantity, calculated, ccNum, exp} = this.state;
     return (
-    <div class="container">
-        <form class="form">
-          
-            
-        <div class="row">
+      <div className="create-main-container">
         
-          <label for="fname"></label>
+      <form className="create-form" onSubmit={(e) => {
+        e.preventDefault();
+        this.props.handleMagicSubmit(this.state);
+        this.props.history.push('/magics');
+      }}>
+          <h3>Magic Potion</h3>
+          <div className="create-edit-container">
+            
+      
+            <input className="create-edit-input"
+               placeholder="First Name"
+          id="firstName"
+          type="text"
+          name="lastName"
+          value={firstName}
+          onChange={this.handleChange}
+        />
+
+     
+            <input className="create-edit-input"
+              placeholder="Surname"
+          id="lastName"
+          type="text"
+          name="lastName"
+          value={lastName}
+          onChange={this.handleChange}
+        />
+
        
-         <div class="inputs" id="fname">
-            <input type="text" name="firstName" placeholder="First name" onChange={this.handleChange} />
-            <input type="text" name="secondName" placeholder="Last name" onChange={this.handleChange} />
-          </div>
-          </div>
-          
-          <div class="row">
-            
-              <label for="email"></label>
-         
-            
-              <input type="text" id="email" name="email" placeholder="Your email" onChange={this.handleChange} />
-           
-          </div>
-          
-          <div class="row">
-            
-              <label for="address"></label>
-            
-            <div  id="address">
-            <input type="text" class="ad1" name="street1" placeholder=" Address line 1" onChange={this.handleChange} />
-            <input type="text" class="ad2" name="street2" placeholder="Addrees line 2" onChange={this.handleChange} />
-            <input type="text"  name="city" placeholder="City" onChange={this.handleChange} />
-            <input type="text"  name="state" placeholder="State" onChange={this.handleChange} />
-            <input type="text"  name="zip" placeholder="Zip" onChange={this.handleChange} />
-            </div>
-          </div>
-          
-          <div class="row">
-            
-              <label for="phone"></label>
-            
-            
-              <input type="tel" id="phone" name="phone" placeholder="Phone #" onChange={this.handleChange} />
-            
-          </div>
+            <input className="create-edit-input"
+               placeholder="email"
+          id="email"
+          type="text"
+          name="email"
+          value={email}
+          onChange={this.handleChange}
+        />
 
-          <div class="row">
-            
-              <label for="payment"></label>
-            
-            <div id="payment">
-              <input type="text" class="inputs" name="ccNum" placeholder="Card #" onChange={this.handleChange} />
-            <input type="date" class="inputs" name="exp" placeholder="Card exp date" onChange={this.handleChange} />
-            </div>
-          </div>
+       
+            <input className="create-edit-input"
+               placeholder="Phone"
+          id="phone"
+          type="text"
+          name="phone"
+          value={phone}
+          onChange={this.handleChange}
+        />
 
-          <div class="row">
-            
-              <label for="quantity"></label>
-            
-            
-              <input type="text" class="inputs" id="quantity" name="quantity" placeholder="0"onChange={this.handleChange} />
-           
-          </div>
+        <div className="description">
+        <p className="description">Address</p>
+      
+           <input className="create-edit-input"
+             placeholder="Street 1"
+        
+          id="street1"
+          type="text"
+          name="street1"
+          value={street1}
+          onChange={this.handleChange}
+        />
 
-          <div class="row">
+           <input className="create-edit-input"
+             placeholder="Street 2"
+        
+          id="street2"
+          type="text"
+          name="street2"
+          value={street2}
+          onChange={this.handleChange}
+        />
+
+            <input className="create-edit-input"
+              placeholder="City"
+        
+          id="city"
+          type="text"
+          name="city"
+          value={city}
+          onChange={this.handleChange}
+        />
+
+            <input className="create-edit-input"
+              placeholder="State"
+        
+          id="state"
+          type="text"
+          name="state"
+          value={state}
+          onChange={this.handleChange}
+        />
+
+            <input className="create-edit-input"
+              placeholder="Zip"
+        
+          id="zip"
+          type="text"
+          name="zip"
+          value={zip}
+          onChange={this.handleChange}
+        />
+        </div>
             
-              <label for="amount"></label>
+        <div className="description">
+        <p className="description">Payment</p>
+      
+            <input className="create-edit-input"
+              placeholder="Credit card number"
+        
+          id="ccNum"
+          type="text"
+          name="ccNum"
+          value={ccNum}
+          onChange={this.handleChange}
+        />
+
+            <input className="create-edit-input"
+               placeholder="Year of expiration"
+        
+          id="exp"
+          type="date"
+          name="exp"
+          value={exp}
+          onChange={this.handleChange}
+        />
+
+
+        </div>
+      
+            <input className="create-edit-input"
+               placeholder="Quantity"
+          id="quantity"
+          type="text"
+          name="quantity"
+          value={quantity}
+          onChange={this.handleChange}
+        />
+        
+       
+            <input className="create-edit-input"
+               placeholder="Calculated"
+          id="calculated"
+          type="text"
+          name="calculated"
+          value={calculated}
+          onChange={this.handleChange}
+            />
             
-            
-              <input type="text" class="inputs" id="amount" name="amount" placeholder="0.0" onChange={this.handleChange}/>
-            
+            <button className="button">Submit</button>
           </div>
           
-          <div class="row"><button type="submit">Submit</button></div>
-          
-          
+
         </form>
-     </div>
-    );
+      </div>
+    )
   }
 }
-export default Form;
+
+
