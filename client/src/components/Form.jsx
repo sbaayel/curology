@@ -13,11 +13,20 @@ export default class Form extends Component {
   handleMagicSubmit(event) {
     event.preventDefault();
     event.target.reset();
+
+    console.log(event.target)
+    console.log(event)
     const data = new FormData(event.target);
+
+    console.log(data);
     
-    fetch('/api/v1/magics', {
-      method: 'POST',
-      body: data,
+    // let str = ;
+    // if () {
+    //   str = 'api/v1/magics/' + id
+    // }
+    fetch('/api/v1', {
+      method: 'post',
+      body: data
     });
   }
   handleChange = (e) => {
