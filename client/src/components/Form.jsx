@@ -20,26 +20,6 @@ export default class Form extends Component {
       body: data,
     });
   }
-
-
-    
-  // state = {
-  //   firstName: '',
-  //   lastName: '',
-  //   email: '',
-  //   phone: '',
-  //   street1: '',
-  //   street2: '',
-  //   city: '',
-  //   state: '',
-  //   zip: '',
-  //   quantity: '',
-  //   calculated: '',
-  //   ccNum: '',
-  //   exp: '',
-  //  magic_id: 1
-  // }
-
   handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({
@@ -48,14 +28,14 @@ export default class Form extends Component {
   }
 
   render() {
-    // const { firstName, lastName, email, phone, street1, street2, city, state, zip, quantity, calculated, ccNum, exp} = this.state;
+    
     return (
       <div className="create-main-container">
         
       <form className="create-form" onSubmit={this.handleMagicSubmit.bind(this)}>
           <h3>Magic Potion</h3>
           <div className="image-wrap">
-            <img src={image} />
+            <img src={image} alt="potion"/>
             
 
             <div className="image-wrap2">

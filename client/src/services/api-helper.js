@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const baseUrl = process.env.NODE_ENV !== 'production' ? 'https://doggies-api.herokuapp.com' : 'http://localhost:3000' 
+//un-used 
+const baseUrl = process.env.NODE_ENV !== 'production' ? 'https://magic-api.herokuapp.com' : 'http://localhost:3000' 
 
 const api = axios.create({
   baseURL: baseUrl
