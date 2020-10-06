@@ -40,15 +40,6 @@ export const destroyMagic = async (id) => {
 
 
 
-export const putAddress = async (id, magicData) => {
-  const resp = await api.put(`/magics/${id}`, magicData);
-  return resp.data;
-}
-
-export const destroyMagic = async (id) => {
-  const resp = await api.delete(`/magics/${id}`);
-  return resp;
-}
 
 export const postAddress = async (addressData, magicId) => {
   const resp = await api.post(`/magics/${magicId}/addresss`, addressData);

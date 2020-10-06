@@ -1,24 +1,44 @@
 import React, { Component } from 'react'
 import '../App.css'
 import './Form.css'
+
 import image from './image.jpg';
 
 export default class Form extends Component {
-  state = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    street1: '',
-    street2: '',
-    city: '',
-    state: '',
-    zip: '',
-    quantity: '',
-    calculated: '',
-    ccNum: '',
-   exp: ''
+  constructor() {
+    super();
+    this.handleMagicSubmit = this.handleMagicSubmit.bind(this);
   }
+
+  handleMagicSubmit(event) {
+    event.preventDefault();
+    event.target.reset();
+    const data = new FormData(event.target);
+    
+    fetch('/api/v1/magics', {
+      method: 'POST',
+      body: data,
+    });
+  }
+
+
+    
+  // state = {
+  //   firstName: '',
+  //   lastName: '',
+  //   email: '',
+  //   phone: '',
+  //   street1: '',
+  //   street2: '',
+  //   city: '',
+  //   state: '',
+  //   zip: '',
+  //   quantity: '',
+  //   calculated: '',
+  //   ccNum: '',
+  //   exp: '',
+  //  magic_id: 1
+  // }
 
   handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,15 +48,11 @@ export default class Form extends Component {
   }
 
   render() {
-    const { firstName, lastName, email, phone, street1, street2, city, state, zip, quantity, calculated, ccNum, exp} = this.state;
+    // const { firstName, lastName, email, phone, street1, street2, city, state, zip, quantity, calculated, ccNum, exp} = this.state;
     return (
       <div className="create-main-container">
         
-      <form className="create-form" onSubmit={(e) => {
-        e.preventDefault();
-        this.props.handleMagicSubmit(this.state);
-        this.props.history.push('/magics');
-      }}>
+      <form className="create-form" onSubmit={this.handleMagicSubmit.bind(this)}>
           <h3>Magic Potion</h3>
           <div className="image-wrap">
             <img src={image} />
@@ -48,17 +64,17 @@ export default class Form extends Component {
           id="quantity"
           type="text"
           name="quantity"
-          value={quantity}
+          
           onChange={this.handleChange}
         />
         
        
             <input className="create-edit-input"
-               placeholder="Calculated"
+               placeholder="0.00"
           id="calculated"
-          type="text"
+          type="value"
           name="calculated"
-          value={calculated}
+          
           onChange={this.handleChange}
               />
             </div>
@@ -71,8 +87,8 @@ export default class Form extends Component {
                placeholder="First Name"
           id="firstName"
           type="text"
-          name="lastName"
-          value={firstName}
+          name="firstName"
+          
           onChange={this.handleChange}
         />
 
@@ -82,7 +98,7 @@ export default class Form extends Component {
           id="lastName"
           type="text"
           name="lastName"
-          value={lastName}
+         
           onChange={this.handleChange}
         />
 
@@ -92,7 +108,7 @@ export default class Form extends Component {
           id="email"
           type="text"
           name="email"
-          value={email}
+          
           onChange={this.handleChange}
         />
 
@@ -102,7 +118,7 @@ export default class Form extends Component {
           id="phone"
           type="text"
           name="phone"
-          value={phone}
+          
           onChange={this.handleChange}
         />
 
@@ -115,7 +131,7 @@ export default class Form extends Component {
           id="street1"
           type="text"
           name="street1"
-          value={street1}
+          
           onChange={this.handleChange}
         />
 
@@ -125,7 +141,7 @@ export default class Form extends Component {
           id="street2"
           type="text"
           name="street2"
-          value={street2}
+          
           onChange={this.handleChange}
         />
 
@@ -135,7 +151,7 @@ export default class Form extends Component {
           id="city"
           type="text"
           name="city"
-          value={city}
+          
           onChange={this.handleChange}
         />
 
@@ -145,7 +161,7 @@ export default class Form extends Component {
           id="state"
           type="text"
           name="state"
-          value={state}
+          
           onChange={this.handleChange}
         />
 
@@ -155,7 +171,7 @@ export default class Form extends Component {
           id="zip"
           type="text"
           name="zip"
-          value={zip}
+          
           onChange={this.handleChange}
         />
         </div>
@@ -169,7 +185,7 @@ export default class Form extends Component {
           id="ccNum"
           type="text"
           name="ccNum"
-          value={ccNum}
+          
           onChange={this.handleChange}
         />
 
@@ -179,7 +195,7 @@ export default class Form extends Component {
           id="exp"
           type="date"
           name="exp"
-          value={exp}
+          
           onChange={this.handleChange}
         />
 

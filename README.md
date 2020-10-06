@@ -12,7 +12,7 @@ _ Navigate into the new directory you just created
 
 _ Copy and past the following:  git clone https://github.com/sbaayel/curology.git
 
-_ When git clone is complete stay in the current folder and do : npm i 
+_ When git clone is complete navigate to the client inside the curology folder and do : npm i 
   This should install all the dependancies need to run the react frontend for the app.
 
 _ Stay in the current directory and open a new window in terminal. 

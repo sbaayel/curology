@@ -33,7 +33,7 @@ export default class Main extends Component {
   render() {
     return (
       <main>
-        <Route path="/magics/new" render={(props) => (
+        <Route path="/api/v1/magics/:id" render={(props) => (
           <Form
             {...props}
             handleMagicSubmit={this.handleMagicSubmit}
