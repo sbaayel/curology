@@ -1,4 +1,48 @@
 # README
+_ Describe your data schema and how it relates to the purchasing of magic
+potions.
+
+The data schema here fundamentaly shows the skeletal structure that represents the logical view of the entire database.
+
+In this database there are three tables named Magic, Address and Payments.
+Payment and Addres tables have a belongs_to association to Magic. This means that Magic table has_one Adress and has_one Payment. This will show Address and Payment as objects in the Magic JSON file.
+
+_Describe how this could scale over time.
+
+The project can be scaled up to include creating and managing product, displaying all products, storing and securing payment
+information through integrate a service ect.
+
+The project can be scaled up to include user login/logout and signup pages.
+
+The UI can be scalled up to be dynamic and user friendly
+
+_ Describe your front end architecture and why you chose to create it as you did.
+Include details about form validation, error handling etc.
+
+src _
+     components _
+                  Form.jsx : This component contains the form that allows user input 
+                  Form.css : This component contains the styling for the front end
+                  Main.jsx : This is the component that handles routing
+     services _ 
+               api-helper.js This component contains data point refferences 
+
+_ Describe the API architecture
+
+Make HTTP POST request to Magic (202 ACCEPTED respones) or (404 FAILURE respons)
+
+_ With more time or in a different environment, what would you do differently?
+
+With more time I will re-organise my code base to make it cleaner than it looks now
+
+I will create unite testing for each route
+
+I will create a better and responsive UI
+
+_ What would you do to improve or scale the application?
+
+To improve or scale up the application I will create a list of very specific funtional requirements with the aim to maximise efficiency.
+    
 
 ## Overview
 This app is based on a react js front end and a a ruby on rails backend.
